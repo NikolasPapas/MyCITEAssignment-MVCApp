@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CiteApp_v1._2.Models.Attribute>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ATTR_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ATTR_Value)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ATTR_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ATTR_Value)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ATTR_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ATTR_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ATTR_ID })
+        </td>
+    </tr>
+}
+
+</table>

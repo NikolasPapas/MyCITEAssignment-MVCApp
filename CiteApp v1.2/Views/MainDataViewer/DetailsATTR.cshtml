@@ -1,0 +1,46 @@
+﻿@model CiteApp_v1._2.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+    <div>
+        <h4>Employee</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.EMP_Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EMP_Name)
+            </dd>
+        </dl>
+    </div>
+
+    <div>
+        <h4>Attribute</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                ATTR_Name
+            </dt>
+            <dd>
+                @ViewBag.Attribute.ATTR_Name
+            </dd>
+
+            <dt>
+                ATTR_Value              
+            </dt>
+
+            <dd>
+                @ViewBag.Attribute.ATTR_Value
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = ViewBag.Attribute.ATTR_ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

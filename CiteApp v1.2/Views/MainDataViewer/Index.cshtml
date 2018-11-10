@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+</head>
+
+<body>
+    <h2>Main Data Viewer</h2>
+
+
+    @if (Model != null)
+    {
+
+        <table class="tableEmployee" border="2">
+            <tr>
+                <th>
+                    EMP_Name
+                </th>
+                <th>
+                    EMP_DateOfHire
+                </th>
+                <th>
+                    <p>Supervisor_ EMP_ID </p>
+                </th>
+                <th>
+                    @Html.ActionLink("Create New EMP", "CreateEMP")
+                </th>
+                <th>
+                    EMP_Attribute  @Html.ActionLink("Create New Attribute", "CreateATTR")
+                </th>
+            </tr>
+
+            @foreach (var empl in Model.listOfEmployee)
+            {
+                <tr>
+                    <td>
+                        @empl.EMP_Name
+                    </td>
+                    <td>
+                        @empl.EMP_DateOfHire
+                    </td>
+                    <td>
+
+                        @empl.EMP_Supervisor
+
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditEMP", new { id = empl.EMP_ID }) |
+                        @Html.ActionLink("Details", "DetailsEMP", new { id = empl.EMP_ID }) |
+                        @Html.ActionLink("Delete", "DeleteEMP", new { id = empl.EMP_ID })
+                    </td>
+
+                    <td>
+                        <table class="tableAttribute" border="1">
+                            <tr>
+                                <th>
+                                    ATTR_Name
+                                </th>
+                                <th>
+                                    ATTR_Value
+                                </th>
+                                <th>
+
+                                </th>
+                            </tr>
+                            @foreach (var item in empl.Attributes)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.ATTR_Name
+                                    </td>
+                                    <td>
+                                        @item.ATTR_Value
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "EditATTR", new { id = empl.EMP_ID, idAttr = item.ATTR_ID }) |
+                                        @Html.ActionLink("Details", "DetailsATTR", new { id = empl.EMP_ID, idAttr = item.ATTR_ID }) |
+                                        @Html.ActionLink("Delete", "DeleteATTR", new { id = empl.EMP_ID, idAttr = item.ATTR_ID })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </td>
+                </tr>
+            }
+        </table>
+
+    }
+</body>
+
+</html>
