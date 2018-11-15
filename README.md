@@ -14,7 +14,6 @@ The following techniques / technologies shall not be employed:
 - Any third party user interface controls (client or server side) apart from jQuery and jQueryUI ones.
 
 
-Projects in Java shall be provided as Eclipse project
 Projects in C# shall be provided as MS Visual Studio Express Solutions.
 
 The desired functionality is about managing the employees and their attributes. Through the application one must be able to view,
